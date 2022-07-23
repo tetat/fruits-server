@@ -2,7 +2,6 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const express = require('express');
 const cors = require('cors');
 const { query } = require('express');
-// const jwt = require('jsonwebtoken');
 const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 5000;
@@ -82,9 +81,6 @@ async function run() {
                     sold: updateFruits.sold ? updateFruits.sold : fruit.sold
                 }
             }
-
-            console.log(updateFruits);
-            console.log(updateDoc);
 
             const result = await fruitCollection.updateOne(filter, updateDoc, options);
             res.send(result);
