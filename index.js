@@ -25,7 +25,6 @@ async function run() {
         // create or insert data
         app.post('/fruits', async (req, res) => {
             const newFruits = req.body;
-            console.log(newFruits);
             const result = await fruitCollection.insertOne(newFruits);
             res.send(result);
         });
